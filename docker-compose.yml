@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: garage-mate-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: garage_mate
+      POSTGRES_PASSWORD: garage_mate
+      POSTGRES_DB: garage_mate
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
